@@ -3,7 +3,7 @@ package iterator;
 public class Fibonacci implements Iterator{
 
 	private int limit ;
-	private int prev1=0,prev2=1;
+	private int prev1=0,prev2=0;
 	
 	public Fibonacci(int upperBound) {
 		// creates a new fibonacci iterator with an upper bound
@@ -20,7 +20,7 @@ public class Fibonacci implements Iterator{
 	public int next() {
 		// return the next fibunacci number in the sequence 
 		if(hasNext()) {
-			int result  = prev1 +prev2;
+			int result  = (prev1 +prev2) == 0 ? 1:prev1 +prev2;
 			prev1  = prev2;
 			prev2 = result;
 			return result;
