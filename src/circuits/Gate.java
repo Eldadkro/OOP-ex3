@@ -13,10 +13,11 @@ public abstract class Gate {
 	//a function that returns the value of the gate with 
 	// inGates entrances 
 	public boolean calc() throws CircuitException {
+		if(inGates == null )
+			return func(null);
 		boolean[] results = new boolean[inGates.length];
-		int i = 0;
-		for(Gate gate : inGates)
-			results[i++] = gate.calc(); 
+		for(int i = 0;i < inGates.length && inGates[i] != null ;i++)
+			results[i] = inGates[i].calc(); 
 		return func(results);
 	}
 

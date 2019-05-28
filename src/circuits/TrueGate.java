@@ -1,6 +1,4 @@
-import circuits.CircuitException;
-import circuits.Gate;
-
+package circuits;
 public class TrueGate extends Gate {
 
 	private static TrueGate singleton = null;
@@ -26,8 +24,7 @@ public class TrueGate extends Gate {
 
 	@Override
 	public Gate simplify() {
-		// TODO Auto-generated method stub
-		return null;
+		return this;
 	}
 	
 	//static method that return the single instance available 
