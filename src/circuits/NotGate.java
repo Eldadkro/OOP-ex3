@@ -27,14 +27,14 @@ public class NotGate extends Gate {
 	@Override
 	public Gate simplify() {
 		// return the simplified version
-		inGates[0] = inGates[0].simplify();
-		if(inGates[0] instanceof FalseGate)
+		Gate g = inGates[0].simplify();
+		if(g instanceof FalseGate)
 			return TrueGate.instance();
-		if(inGates[0] instanceof TrueGate)
+		if(g instanceof TrueGate)
 			return FalseGate.instance();
-		if(inGates[0] instanceof NotGate)
+		if(g instanceof NotGate)
 			return inGates[0].inGates[0].simplify();
-		return inGates[0];
+		return this;
 	}
 
 }

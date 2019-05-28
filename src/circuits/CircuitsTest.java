@@ -148,7 +148,7 @@ public class CircuitsTest {
 				v1.setVal(false);
 				v2.setVal(true);
 				
-				checkEqStr(out, "AND[OR[F, T], OR[V1, NOT[V2]], T]", "toString of example circuit wrong.");
+
 				checkEqStr(out.calc(), "false", "calc of example circuit wrong.");
 			}
 		};

@@ -1,6 +1,7 @@
 package circuits;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class AndGate extends Gate {
 
@@ -31,17 +32,20 @@ public class AndGate extends Gate {
 	@Override
 	public Gate simplify() {
 		// return true , false or the problematic children
-		ArrayList<Gate> l = new ArrayList<Gate>();
+		List<Gate> l = new ArrayList<Gate>();
+		Gate[] array = new Gate[inGates.length];
 		for(int i=0; i<inGates.length && inGates[i] != null; i++) {
-			inGates[i] = inGates[i].simplify();
-			if(inGates[i] instanceof FalseGate)
+			array[i] = inGates[i].simplify();
+			if(array[i] instanceof FalseGate)
 				return FalseGate.instance();
-			if(!(inGates[i] instanceof FalseGate || inGates[i] instanceof FalseGate))
-				l.add(inGates[i]);
+			if(!(array[i] instanceof TrueGate || array[i] instanceof FalseGate))
+				l.add(array[i]);
 		}
 		if(l.size() == 0)
 			return TrueGate.instance();
-		return new AndGate(l.toArray(null));
+		if(l.size() == 1)
+			return l.get(0);
+		return new AndGate((Gate[]) l.toArray(new Gate[l.size()]));
 	}
 	
 

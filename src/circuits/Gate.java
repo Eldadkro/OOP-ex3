@@ -33,16 +33,18 @@ public abstract class Gate {
 	//return a representation of the gate 
 	// by using a stringBuilder and recursively printing each gates toString()
 	public String toString() {
-		if(inGates.length == 0)
+		if(inGates == null)
+			return getName();
+		if(inGates.length == 0 || inGates[0] == null)
 			return getName();
 		StringBuilder str = new StringBuilder();
 		str.append(getName());
 		str.append('[');
-		for(Gate g :inGates) {
-			str.append(g.toString());
-			str.append(',');
+		for(int i=0;i<inGates.length && inGates[i] != null; i++) {
+			str.append(inGates[i].toString());
+			str.append(", ");
 		}
-		str.deleteCharAt(str.length()-1);
+		str.delete(str.length()-2, str.length());
 		str.append(']');
 		return str.toString();
 	}
