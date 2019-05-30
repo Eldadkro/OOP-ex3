@@ -2,7 +2,6 @@ package circuits;
 
 import java.util.ArrayList;
 
-
 public class OrGate extends Gate {
 
 	public OrGate(Gate[] inGates) {
@@ -35,17 +34,17 @@ public class OrGate extends Gate {
 	public Gate simplify() {
 		// return true , false or the problematic children
 		ArrayList<Gate> l = new ArrayList<Gate>();
-		Gate[] array = new Gate[inGates.length];
-		for(int i=0; i<inGates.length && inGates[i] != null; i++) {
-			array[i] = inGates[i].simplify();
-			if(array[i] instanceof TrueGate)
+		Gate tmp;
+		for (int i = 0; i < inGates.length && inGates[i] != null; i++) {
+			tmp = inGates[i].simplify();
+			if (tmp instanceof TrueGate)
 				return TrueGate.instance();
-			if(!(array[i] instanceof TrueGate || array[i] instanceof FalseGate))
-				l.add(array[i]);
+			if (!(tmp instanceof TrueGate || tmp instanceof FalseGate))
+				l.add(tmp);
 		}
-		if(l.size() == 0)
+		if (l.size() == 0)
 			return FalseGate.instance();
-		if(l.size() == 1)
+		if (l.size() == 1)
 			return l.get(0);
 		return new OrGate((Gate[]) l.toArray(new Gate[l.size()]));
 	}

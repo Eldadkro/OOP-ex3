@@ -2,7 +2,7 @@ package images;
 
 public abstract class ImageDecorator implements Image {
 
-	protected Image base;
+	protected Image base; // the base image we cover
 	
 	public ImageDecorator(Image base) {
 		this.base = base;

@@ -4,23 +4,23 @@ public class Transpose extends ImageDecorator {
 
 	public Transpose(Image base) {
 		super(base);
-		// TODO Auto-generated constructor stub
+		// constructor
 	}
-	
+
 	@Override
 	public int getHeight() {
-		return super.getWidth();
+		return super.getWidth(); // flips the axis
 	}
-	
+
 	@Override
 	public int getWidth() {
-		return super.getHeight();
+		return super.getHeight(); // flips the axis
 	}
-	
+
 	@Override
 	public RGB get(int x, int y) {
-		// TODO Auto-generated method stub
-		return base.get(y,x);
+		// gets the transposed pixel
+		return base.get(y, x);
 	}
 
 }

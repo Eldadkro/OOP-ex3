@@ -8,11 +8,11 @@ public class Superpose extends BinaryImageDecorator {
 
 	@Override
 	public RGB get(int x, int y) {
-		RGB pixel = new RGB(0);
+		RGB pixel = new RGB(0); // base color
 		if(x<i1.getWidth() && y<i1.getHeight())
-			pixel = RGB.superpose(pixel, i1.get(x, y));
+			pixel = RGB.superpose(pixel, i1.get(x, y)); // adds the first image
 		if(x<i2.getWidth() && y<i2.getHeight())
-			pixel = RGB.superpose(pixel, i2.get(x, y));
+			pixel = RGB.superpose(pixel, i2.get(x, y)); // adds the first image
 		return pixel;
 	}
 	

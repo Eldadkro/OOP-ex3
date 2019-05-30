@@ -20,7 +20,7 @@ public class TwoColorImage extends BaseImage {
 			result = 0;
 		if(result > 1)
 			result = 1;
-		return RGB.mix(colors[0], colors[1], 1-result);
+		return RGB.mix(colors[0], colors[1], 1-result); // as we decided when result is 1 we get color[0]
 		
 	}
 

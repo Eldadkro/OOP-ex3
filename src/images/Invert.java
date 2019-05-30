@@ -5,7 +5,7 @@ public class Invert extends ImageDecorator {
 	
 	public Invert(Image base) {
 		super(base);
-		// TODO Auto-generated constructor stub
+		// constructor
 	}
 
 	@Override

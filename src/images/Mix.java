@@ -13,11 +13,11 @@ public class Mix extends BinaryImageDecorator {
 	@Override
 	public RGB get(int x, int y) {
 		
-		RGB pixel = new RGB(0);
-		boolean image1,image2;
-		image1 = (x<i1.getWidth() && y<i1.getHeight());
-		image2 = (x<i2.getWidth() && y<i2.getHeight());
-		if(!image1 && !image2)
+		RGB pixel = new RGB(0); // base color dark
+		boolean image1,image2; 
+		image1 = (x<i1.getWidth() && y<i1.getHeight()); // if it is inside i1
+		image2 = (x<i2.getWidth() && y<i2.getHeight()); // if it is inside i2
+		if(!image1 && !image2)// all of the options
 			return pixel;
 		if(!image1 && image2)
 			return i2.get(x,y);

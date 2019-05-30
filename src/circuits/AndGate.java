@@ -33,13 +33,13 @@ public class AndGate extends Gate {
 	public Gate simplify() {
 		// return true , false or the problematic children
 		List<Gate> l = new ArrayList<Gate>();
-		Gate[] array = new Gate[inGates.length];
+		Gate tmp ;
 		for(int i=0; i<inGates.length && inGates[i] != null; i++) {
-			array[i] = inGates[i].simplify();
-			if(array[i] instanceof FalseGate)
+			tmp = inGates[i].simplify();
+			if(tmp instanceof FalseGate)
 				return FalseGate.instance();
-			if(!(array[i] instanceof TrueGate || array[i] instanceof FalseGate))
-				l.add(array[i]);
+			if(!(tmp instanceof TrueGate || tmp instanceof FalseGate))
+				l.add(tmp);
 		}
 		if(l.size() == 0)
 			return TrueGate.instance();

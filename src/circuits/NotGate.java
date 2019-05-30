@@ -33,7 +33,7 @@ public class NotGate extends Gate {
 		if(g instanceof TrueGate)
 			return FalseGate.instance();
 		if(g instanceof NotGate)
-			return inGates[0].inGates[0].simplify();
+			return g.simplify();
 		return this;
 	}
 

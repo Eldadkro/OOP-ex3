@@ -2,7 +2,7 @@ package images;
 
 public class Filter extends ImageDecorator {
 
-	private RGB filter;
+	private RGB filter; // the filter for the decorator
 	
 	public Filter(Image base, RGB filter) {
 		super(base);
