@@ -50,7 +50,7 @@ public class ExDetails {
 
 	// Put your details here (in English!)
 	public static ExDetails firstStudent() {
-		return new ExDetails(1111111, "Arik", "Sumsum", "arik@sumsum.ac.il");
+		return new ExDetails(313429607, "Eldad", "Kronfeld", "eldadkro@gmail.com");
 	}
 
 	// Put the second student details here, or return null if there is only one student.
